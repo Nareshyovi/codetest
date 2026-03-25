@@ -32,3 +32,21 @@ spec:
     - port: 80
       targetPort: 80
       nodePort: 30008
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: 4pod
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      name: devops
+  template:
+    metadata:
+      labels:
+        name: devops
+    spec:
+      containers:
+      - name: container 4
+        image: nginx
